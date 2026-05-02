@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-playfair: 'Playfair Display', serif;
+  --font-cormorant: 'Cormorant Garamond', serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #080808;
+  color: #F5F0E8;
+  font-family: var(--font-inter), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #111111; }
+::-webkit-scrollbar-thumb { background: #C9A84C; border-radius: 3px; }
+
+/* Selection */
+::selection {
+  background: rgba(201, 168, 76, 0.25);
+  color: #F5F0E8;
+}
+
+/* Focus */
+*:focus-visible {
+  outline: 2px solid #C9A84C;
+  outline-offset: 2px;
+}
+
+@layer components {
+  .btn-gold {
+    @apply px-7 py-3 bg-gold text-ink font-semibold tracking-[0.15em] uppercase text-sm transition-all duration-300 hover:bg-gold-light active:scale-95;
+  }
+
+  .btn-outline {
+    @apply px-7 py-3 border border-gold text-gold tracking-[0.15em] uppercase text-sm font-medium transition-all duration-300 hover:bg-gold hover:text-ink active:scale-95;
+  }
+
+  .section-pad {
+    @apply px-6 py-20 md:px-12 md:py-28 lg:px-20;
+  }
+
+  .gold-line {
+    @apply h-px bg-gradient-to-r from-transparent via-gold to-transparent;
+  }
+
+  .gold-shimmer-text {
+    background: linear-gradient(90deg, #C9A84C 0%, #E8C86D 40%, #C9A84C 80%, #E8C86D 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+  }
+
+  .card-surface {
+    @apply bg-ink-surface border border-gold/10 transition-all duration-300 hover:border-gold/30;
+  }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* Fade in on scroll - triggered by JS intersection observer */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal-stagger.visible > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.05s; }
+.reveal-stagger.visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.15s; }
+.reveal-stagger.visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.25s; }
+.reveal-stagger.visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.35s; }
+.reveal-stagger.visible > *:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.45s; }
+.reveal-stagger.visible > *:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.55s; }
