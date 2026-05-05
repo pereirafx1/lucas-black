@@ -1,10 +1,12 @@
-import { MapPin, Phone, Mail, Clock } from 'lucide-react'
+import { MapPin, Phone, Clock } from 'lucide-react'
 
 const HOURS = [
-  { day: 'Segunda — Sexta', time: '09:00 — 19:30' },
-  { day: 'Sábado', time: '09:00 — 18:00' },
+  { day: 'Segunda — Sábado', time: '10:00 — 13:00  |  14:00 — 20:00' },
   { day: 'Domingo', time: 'Fechado' },
 ]
+
+const ADDRESS = 'Rua Dr. Antônio Rodrigues Manito 143'
+const MAPS_URL = 'https://maps.google.com/?q=Rua+Dr.+Ant%C3%B4nio+Rodrigues+Manito+143+Set%C3%BAbal'
 
 export default function Contact() {
   return (
@@ -31,8 +33,8 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-cream/40 text-xs tracking-[0.15em] uppercase mb-1">Morada</p>
-                <p className="text-cream font-medium">Rua dos Barbeiros, 15</p>
-                <p className="text-cream/60 text-sm">2900-001 Setúbal</p>
+                <p className="text-cream font-medium">{ADDRESS}</p>
+                <p className="text-cream/60 text-sm">Setúbal</p>
               </div>
             </div>
 
@@ -44,26 +46,10 @@ export default function Contact() {
               <div>
                 <p className="text-cream/40 text-xs tracking-[0.15em] uppercase mb-1">Telefone</p>
                 <a
-                  href="tel:+351265123456"
+                  href="tel:+351913887639"
                   className="text-cream font-medium hover:text-gold transition-colors"
                 >
-                  +351 265 123 456
-                </a>
-              </div>
-            </div>
-
-            {/* Email */}
-            <div className="card-surface p-6 flex gap-4">
-              <div className="w-10 h-10 border border-gold/30 flex items-center justify-center flex-shrink-0">
-                <Mail size={16} className="text-gold" />
-              </div>
-              <div>
-                <p className="text-cream/40 text-xs tracking-[0.15em] uppercase mb-1">Email</p>
-                <a
-                  href="mailto:info@lucasblack.pt"
-                  className="text-cream font-medium hover:text-gold transition-colors"
-                >
-                  info@lucasblack.pt
+                  +351 913 887 639
                 </a>
               </div>
             </div>
@@ -84,7 +70,7 @@ export default function Contact() {
                   >
                     <span className="text-cream/60 font-light">{h.day}</span>
                     <span
-                      className={`font-medium ${
+                      className={`font-medium text-right ${
                         h.time === 'Fechado' ? 'text-muted' : 'text-cream'
                       }`}
                     >
@@ -145,9 +131,9 @@ export default function Contact() {
                   <MapPin size={16} className="text-gold mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="text-cream font-semibold text-sm">Lucas Black Barbearia</p>
-                    <p className="text-cream/50 text-xs mt-0.5">Rua dos Barbeiros, 15 · Setúbal</p>
+                    <p className="text-cream/50 text-xs mt-0.5">{ADDRESS} · Setúbal</p>
                     <a
-                      href="https://maps.google.com/?q=Setubal,Portugal"
+                      href={MAPS_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gold/70 text-xs hover:text-gold transition-colors mt-1 inline-block tracking-wider"
