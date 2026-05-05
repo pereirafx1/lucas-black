@@ -87,7 +87,7 @@ export default function Contact() {
             <div className="relative w-full min-h-[420px] h-full border border-gold/15 overflow-hidden">
               {/* Google Maps iframe — satellite 45° tilt + dark CSS filter */}
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d600!2d-8.894677!3d38.538479!2m3!1f45!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAvenida%20Dr.%20Ant%C3%B3nio%20Rodrigues%20Manito%20143%2C%20Set%C3%BAbal%2C%20Portugal!5e1!3m2!1spt!2spt!4v1714000000000"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1200!2d-8.894677!3d38.538479!2m3!1f60!2f90!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAvenida%20Dr.%20Ant%C3%B3nio%20Rodrigues%20Manito%20143%2C%20Set%C3%BAbal%2C%20Portugal!5e1!3m2!1spt!2spt!4v1714000000000"
                 title="Localização Lucas Black Barbearia"
                 width="100%"
                 height="100%"
